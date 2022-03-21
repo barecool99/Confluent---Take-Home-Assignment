@@ -11,8 +11,8 @@ Initialise virtual environment
 
 # Assignment Questions:
 
-Experiment with multiple partitions in your topics. How do the number of partitions affect your producer and
-consumer applications?
+***Experiment with multiple partitions in your topics. How do the number of partitions affect your producer and
+consumer applications?***
 
   Producers allocate messages to partitions in a round robin fashion (each message is sent to the next partition in turn). 
   This will in turn balance out the amount of messages sent to each partition and ensure that no single partition is 
@@ -24,8 +24,8 @@ consumer applications?
   stops reading messages due to being stopped.
 
 
-Experiment with the Kafka producer config settings, specifically acks, batch.size and linger.ms. How do these affect
-throughput, latency and durability?
+***Experiment with the Kafka producer config settings, specifically acks, batch.size and linger.ms. How do these affect
+throughput, latency and durability?***
 
   'linger.ms' groups together messages that are being held due to high load. This helps reduce the overall load by as
   messages are being sent grouped together rather than as individual requests. Therefore, this improves the overall
@@ -46,14 +46,14 @@ throughput, latency and durability?
   until the batch is large enough to be sent off based on the configuration value.
 
 
-Experiment with the Kafka consumer config settings, how do multiple consumers work together?
+***Experiment with the Kafka consumer config settings, how do multiple consumers work together?***
 
   Depending on the # of partitions on the given topic, the consumers will automatically split the partitions that they
   will read the messages from between them. ==> 1 topic has 10 partitions, 2 consumers will split the partitions evenly
   reading meassages from 5 partitions respectively. 
 
 
-In your consumer application output the message metadata to the console (partition, offset, etc)
+***In your consumer application output the message metadata to the console (partition, offset, etc)***
 
   Example console output:
     Consumed event from topic tpc-race-data | value = {"season": "1958", "round": "7", "Races": 
@@ -61,11 +61,13 @@ In your consumer application output the message metadata to the console (partiti
     "British Grand Prix", "Circuit": {"circuitId": "silverstone", "url": "http://en.wikipedia.org/wiki/Silverstone_Circuit", 
     "circuitName": "Silverstone Circuit", "Location": {"lat": "52.0786", "long": "-1.01694", "locality": "Silverstone", 
     "country": "UK"}}, "date": "1958-07-19"}]}zn
-    Message Metadata >> Offset: 2048 | Partition: 0
+    **Message Metadata >> Offset: 2048 | Partition: 0
 
 
-Install and connect the Confluent Cloud CLI to your cluster
-    
+***Install and connect the Confluent Cloud CLI to your cluster***
+ 
+ Main commands to connect to CC:
+ 
     > confluent login
 
     > confluent environment use env-00666
@@ -73,8 +75,8 @@ Install and connect the Confluent Cloud CLI to your cluster
     > confluent kafka cluster use lkc-388g5j
 
 
-Create additional ksqlDB streams and tables
+***Create additional ksqlDB streams and tables***
 Issues occured when trying to create the ksqlDB streams/tables. No data was being streamed to either process.
 
-Use a managed Connector to sink your messages to an external system
+***Use a managed Connector to sink your messages to an external system***
 ElasticSearch & Kibana was utilised.
