@@ -1,0 +1,97 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "season": {
+        "type": "string"
+      },
+      "round": {
+        "type": "string"
+      },
+      "Races": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "season": {
+                "type": "string"
+              },
+              "round": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "raceName": {
+                "type": "string"
+              },
+              "Circuit": {
+                "type": "object",
+                "properties": {
+                  "circuitId": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "circuitName": {
+                    "type": "string"
+                  },
+                  "Location": {
+                    "type": "object",
+                    "properties": {
+                      "lat": {
+                        "type": "string"
+                      },
+                      "long": {
+                        "type": "string"
+                      },
+                      "locality": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "lat",
+                      "long",
+                      "locality",
+                      "country"
+                    ]
+                  }
+                },
+                "required": [
+                  "circuitId",
+                  "url",
+                  "circuitName",
+                  "Location"
+                ]
+              },
+              "date": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "season",
+              "round",
+              "url",
+              "raceName",
+              "Circuit",
+              "date",
+              "time"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "season",
+      "round",
+      "Races"
+    ]
+  }

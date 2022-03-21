@@ -1,0 +1,23 @@
+
+CREATE STREAM raceData (season STRING,
+                        round STRING,
+                        Races STRUCT<
+                        	season STRING,
+                        	round STRING,
+                        	url STRING,
+                        	raceName STRING,
+                        	Circuit STRUCT<
+                        		circuitId STRING,
+                        		url STRING,
+                        		CircuitName STRING,
+                        		Location STRUCT<
+                        			lat STRING,
+                        			long STRING,
+                        			locality STRING,
+                        			country STRING>
+                        		>,
+                        date STRING,
+                        time STRING>
+                       )
+                       WITH (KAFKA_TOPIC = 'tpc-race-data',
+                             VALUE_FORMAT = 'json');
